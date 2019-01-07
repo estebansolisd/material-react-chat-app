@@ -2,7 +2,6 @@ import React from 'react';
 import {TextField,Button,Grid,Typography,Paper} from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send';
 import * as firebase from 'firebase';
-import now from '../util/date';
 export default class MessagesForm extends React.Component{
     constructor(props){
         super(props);
@@ -10,7 +9,7 @@ export default class MessagesForm extends React.Component{
             sendedInfo:{
                 user: this.props.user,
                 messages: "",
-                date: now
+                date: new Date().toLocaleString()
             },
             messages:[]
         }
