@@ -53,7 +53,9 @@ export default class MessagesForm extends React.Component{
             .database()
             .ref("chats/")
             .push(this.state.sendedInfo);
-            this.state.sendedInfo.messages = "";
+            let sendedInfo = Object.assign({}, this.state.sendedInfo);
+            sendedInfo.messages = "";                        
+            this.setState({sendedInfo});
         }
     }
     getMessages(){
