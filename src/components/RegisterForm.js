@@ -1,7 +1,8 @@
 import React from 'react';
 import {TextField, Grid, Button} from '@material-ui/core';
 import SendIcon from '@material-ui/icons/Send'
-import {Link} from "react-router-dom";
+import {Link,Route} from "react-router-dom";
+import MessagesUI from './MessagesUI';
 export default class RegisterForm extends React.Component{
     constructor(props){
         super(props);

@@ -53,6 +53,7 @@ export default class MessagesForm extends React.Component{
             .database()
             .ref("chats/")
             .push(this.state.sendedInfo);
+            this.state.sendedInfo.messages = "";
         }
     }
     getMessages(){
@@ -98,7 +99,7 @@ export default class MessagesForm extends React.Component{
                 </Grid>
                 <Grid container spacing={16} style={{marginTop:"10px"}}>
                     <Grid item xs={7} sm={10}>
-                        <TextField style={{width:"100%"}} placeholder="Write your messages.." onKeyPress={this.handleSubmit}  onChange={this.handleChange}/>
+                        <TextField value={this.state.sendedInfo.messages} style={{width:"100%"}} placeholder="Write your messages.." onKeyPress={this.handleSubmit}  onChange={this.handleChange}/>
                     </Grid>
                     <Grid item xs={3} sm={2}>
                         <Button style={{width:"100%"}} className={classes.button} variant="contained" color="primary" onClick={this.handleSubmit}>
