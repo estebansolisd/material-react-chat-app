@@ -16,6 +16,17 @@ export default class MessagesForm extends React.Component{
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
     }
+    scrollToBottom = () => {
+        this.messages.scrollIntoView({ behavior: "smooth" });
+    }
+    
+    componentDidMount() {
+        this.scrollToBottom();
+    }
+    
+    componentDidUpdate() {
+        this.scrollToBottom();
+    }
     componentWillMount(){
         // Initialize Firebase
         var config = {
@@ -80,6 +91,7 @@ export default class MessagesForm extends React.Component{
                         <Paper style={{overflowY:"scroll",height:"80vh"}}> 
                             <Grid item xs={4} sm={2}>
                                 {this.renderMessages()}
+                                <div ref={el => { this.messages = el }}></div>
                             </Grid>
                         </Paper>
                     </Grid>
